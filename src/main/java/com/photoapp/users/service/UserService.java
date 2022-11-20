@@ -4,6 +4,7 @@ import com.photoapp.users.data.UserRepository;
 import com.photoapp.users.mapper.UserMapper;
 import com.photoapp.users.shared.UserDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -14,12 +15,13 @@ public class UserService {
 
     private final UserMapper userMapper;
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public UserDto createUser(UserDto userDto) {
         var userEntity = userMapper.userDtoToUserEntity(userDto)
             .toBuilder()
             .userId(UUID.randomUUID().toString())
-            .encryptedPassword("test")
+            .encryptedPassword(passwordEncoder.encode(userDto.getPassword()))
             .build();
 
         userRepository.save(userEntity);
