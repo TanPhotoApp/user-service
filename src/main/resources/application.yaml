@@ -16,6 +16,8 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     open-in-view: false
+  config:
+    import: optional:configserver:${SPRING_CLOUD_CONFIG_URI:http://localhost:8888}
 eureka:
   client:
     service-url:
@@ -26,10 +28,11 @@ eureka:
     status-page-url-path: /users/status/check
     prefer-ip-address: true
 
+# load from config server
 token:
   # 1 day
   expireTime: 8640000
-  signingKey: als7fa9sulkajJWEjri23rlaslkdjfaksjdfl;jasfjaksjfkaj23oj2lj34l2
+  signingKey: ahihi
 
 
 
