@@ -15,6 +15,7 @@ spring:
     driver-class-name: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
 eureka:
   client:
     service-url:
@@ -23,3 +24,12 @@ eureka:
     instance-id: ${spring.application.name}:${spring.instance-id:${random.value}}
     # Change default status page from /actuator/status to custom endpoint
     status-page-url-path: /users/status/check
+    prefer-ip-address: true
+
+token:
+  # 1 day
+  expireTime: 8640000
+  signingKey: als7fa9sulkajJWEjri23rlaslkdjfaksjdfl;jasfjaksjfkaj23oj2lj34l2
+
+
+
