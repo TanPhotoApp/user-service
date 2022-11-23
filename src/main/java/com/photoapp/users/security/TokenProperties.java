@@ -1,8 +1,13 @@
 package com.photoapp.users.security;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 
+@Data
 @ConfigurationProperties(prefix = "token")
-@RefreshScope
-public record TokenProperties(long expireTime, String signingKey) {}
+public class TokenProperties {
+
+    private long expireTime;
+    private String signingKey;
+
+}

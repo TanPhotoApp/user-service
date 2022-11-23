@@ -56,10 +56,10 @@ public class LoginAuthenticationFilter extends UsernamePasswordAuthenticationFil
     public void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) {
         AppUserDetails userDetail = (AppUserDetails) authResult.getPrincipal();
 
-        var key = Keys.hmacShaKeyFor(tokenProperties.signingKey().getBytes(StandardCharsets.UTF_8));
+        var key = Keys.hmacShaKeyFor(tokenProperties.getSigningKey().getBytes(StandardCharsets.UTF_8));
         var token = Jwts.builder()
             .setSubject(userDetail.getUserId())
-            .setExpiration(new Date(System.currentTimeMillis() + tokenProperties.expireTime()))
+            .setExpiration(new Date(System.currentTimeMillis() + tokenProperties.getExpireTime()))
             .signWith(key, SignatureAlgorithm.HS256)
             .compact();
 
