@@ -4,15 +4,6 @@ server:
 spring:
   application:
     name: users-service
-  datasource:
-    url: jdbc:mysql://localhost:3306/photo-app
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: PASSWORD
-  jpa:
-    hibernate:
-      ddl-auto: update
-    open-in-view: false
   config:
     import: optional:configserver:${SPRING_CLOUD_CONFIG_URI:http://localhost:8888}
 
