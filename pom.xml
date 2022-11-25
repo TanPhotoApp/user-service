@@ -60,6 +60,13 @@
         </dependency>
         <!-- Spring }} -->
 
+        <!-- {{ Service -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!-- Service }} -->
+
         <!-- {{ Utility -->
         <dependency>
             <groupId>org.projectlombok</groupId>

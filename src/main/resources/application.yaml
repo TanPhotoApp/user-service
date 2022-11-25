@@ -5,10 +5,13 @@ spring:
   application:
     name: users-service
   datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/photo-app
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: PASSWORD
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
     open-in-view: false
   config:
     import: optional:configserver:${SPRING_CLOUD_CONFIG_URI:http://localhost:8888}
