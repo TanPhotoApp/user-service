@@ -1,4 +1,4 @@
-package com.photoapp.users.data;
+package com.photoapp.user.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

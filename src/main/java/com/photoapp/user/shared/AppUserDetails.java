@@ -1,6 +1,6 @@
-package com.photoapp.users.shared;
+package com.photoapp.user.shared;
 
-import com.photoapp.users.data.UserEntity;
+import com.photoapp.user.data.UserEntity;
 import lombok.experimental.Delegate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

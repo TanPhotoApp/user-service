@@ -1,9 +1,9 @@
-package com.photoapp.users.service;
+package com.photoapp.user.service;
 
-import com.photoapp.users.data.UserRepository;
-import com.photoapp.users.mapper.UserMapper;
-import com.photoapp.users.shared.AppUserDetails;
-import com.photoapp.users.shared.UserDto;
+import com.photoapp.user.data.UserRepository;
+import com.photoapp.user.mapper.UserMapper;
+import com.photoapp.user.shared.AppUserDetails;
+import com.photoapp.user.shared.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

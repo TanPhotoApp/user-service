@@ -1,4 +1,4 @@
-package com.photoapp.users.security;
+package com.photoapp.user.security;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

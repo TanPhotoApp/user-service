@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.photoapp</groupId>
-    <artifactId>photo-app-users</artifactId>
+    <artifactId>user-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>photo-app-users</name>
+    <name>user-service</name>
     <description>User service</description>
 
     <properties>

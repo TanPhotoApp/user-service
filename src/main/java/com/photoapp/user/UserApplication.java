@@ -1,4 +1,4 @@
-package com.photoapp.users;
+package com.photoapp.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,10 +11,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 // can now be found via classpath scanning as an alternative to using @EnableConfigurationProperties or @Component.
 // Add @ConfigurationPropertiesScan to your application to enable scanning.
 @ConfigurationPropertiesScan
-public class UsersApplication {
+public class UserApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UsersApplication.class, args);
+        SpringApplication.run(UserApplication.class, args);
     }
 
 }

@@ -1,10 +1,10 @@
-package com.photoapp.users;
+package com.photoapp.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UsersApplicationTests {
+class UserApplicationTests {
 
     @Test
     void contextLoads() {

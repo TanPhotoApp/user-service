@@ -1,4 +1,4 @@
-# users-service
+# user-service
 
 ### Connect to H2 database
 1. Add H2 dependency

@@ -1,9 +1,9 @@
-package com.photoapp.users.api.controller;
+package com.photoapp.user.api.controller;
 
-import com.photoapp.users.api.model.CreateUserRequest;
-import com.photoapp.users.api.model.CreateUserResponse;
-import com.photoapp.users.mapper.UserMapper;
-import com.photoapp.users.service.UserService;
+import com.photoapp.user.api.model.CreateUserRequest;
+import com.photoapp.user.api.model.CreateUserResponse;
+import com.photoapp.user.mapper.UserMapper;
+import com.photoapp.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("users")
 @RequiredArgsConstructor
-public class UsersController {
+public class UserController {
 
     private final Environment environment;
     private final UserMapper userMapper;

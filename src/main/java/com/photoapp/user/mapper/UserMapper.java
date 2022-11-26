@@ -1,9 +1,9 @@
-package com.photoapp.users.mapper;
+package com.photoapp.user.mapper;
 
-import com.photoapp.users.api.model.CreateUserRequest;
-import com.photoapp.users.api.model.CreateUserResponse;
-import com.photoapp.users.data.UserEntity;
-import com.photoapp.users.shared.UserDto;
+import com.photoapp.user.api.model.CreateUserRequest;
+import com.photoapp.user.api.model.CreateUserResponse;
+import com.photoapp.user.data.UserEntity;
+import com.photoapp.user.shared.UserDto;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

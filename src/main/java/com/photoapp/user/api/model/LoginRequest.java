@@ -1,4 +1,4 @@
-package com.photoapp.users.api.model;
+package com.photoapp.user.api.model;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.photoapp.users.shared;
+package com.photoapp.user.shared;
 
 import lombok.Data;
 

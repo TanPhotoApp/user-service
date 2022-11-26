@@ -1,4 +1,4 @@
-package com.photoapp.users.data;
+package com.photoapp.user.data;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

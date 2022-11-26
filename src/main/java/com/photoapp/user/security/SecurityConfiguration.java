@@ -1,6 +1,6 @@
-package com.photoapp.users.security;
+package com.photoapp.user.security;
 
-import com.photoapp.users.service.UserService;
+import com.photoapp.user.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

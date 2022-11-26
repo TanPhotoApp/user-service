@@ -1,8 +1,8 @@
-package com.photoapp.users.security;
+package com.photoapp.user.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.photoapp.users.api.model.LoginRequest;
-import com.photoapp.users.shared.AppUserDetails;
+import com.photoapp.user.api.model.LoginRequest;
+import com.photoapp.user.shared.AppUserDetails;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
