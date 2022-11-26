@@ -2,6 +2,7 @@ package com.photoapp.user.api.controller;
 
 import com.photoapp.user.api.model.CreateUserRequest;
 import com.photoapp.user.api.model.CreateUserResponse;
+import com.photoapp.user.api.model.UserResponse;
 import com.photoapp.user.mapper.UserMapper;
 import com.photoapp.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -33,8 +34,15 @@ public class UserController {
         var createdUserDto = userService.createUser(userDto);
         var response = userMapper.userDtoToCreateUserResponse(createdUserDto);
 
-        return ResponseEntity.status(HttpStatus.CREATED)
-            .body(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping("{userId}")
+    public ResponseEntity<UserResponse> getUser(@PathVariable String userId) {
+        var userDto = userService.getUserByUserId(userId);
+        var response = userMapper.userDtoToUserResponse(userDto);
+
+        return ResponseEntity.ok(response);
     }
 
 }
