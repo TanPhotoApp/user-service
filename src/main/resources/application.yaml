@@ -23,5 +23,14 @@ token:
   expireTime: 8640000
   signingKey: ahihi
 
+logging:
+  level:
+    com.photoapp.user.data.AlbumServiceClient: DEBUG
+
+feign:
+  client:
+    config:
+      default:
+        logger-level: FULL
 
 
