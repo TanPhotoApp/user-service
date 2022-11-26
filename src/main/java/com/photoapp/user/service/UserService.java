@@ -1,6 +1,6 @@
 package com.photoapp.user.service;
 
-import com.photoapp.user.api.model.AlbumResponse;
+import com.photoapp.user.data.AlbumServiceClient;
 import com.photoapp.user.data.UserRepository;
 import com.photoapp.user.mapper.UserMapper;
 import com.photoapp.user.shared.AppUserDetails;
@@ -11,9 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -23,7 +21,8 @@ public class UserService implements UserDetailsService {
     private final UserMapper userMapper;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final RestTemplate restTemplate;
+//    private final RestTemplate restTemplate;
+    private final AlbumServiceClient albumServiceClient;
 
     public UserDto createUser(UserDto userDto) {
         var userEntity = userMapper.userDtoToUserEntity(userDto)
@@ -56,8 +55,10 @@ public class UserService implements UserDetailsService {
         var userDto = userMapper.userEntityToUserDto(userEntity);
 
         // call album-service by RestTemplate
-        String url = "http://album-service/users/%s/albums".formatted(userId);
-        var albums = List.of(restTemplate.getForObject(url, AlbumResponse[].class));
+//        String url = "http://album-service/users/%s/albums".formatted(userId);
+//        var albums = List.of(restTemplate.getForObject(url, AlbumResponse[].class));
+
+        var albums = albumServiceClient.getAlbums(userId);
         userDto.setAlbums(albums);
 
         return userDto;
