@@ -44,6 +44,7 @@ public class SecurityConfiguration {
                 .frameOptions().disable() // To make h2-console work properly, because h2-console use frameOption
             .and()
             .authorizeRequests()
+                // TODO should allow gateway call only
                 .antMatchers("/users/**").permitAll()
             .and()
             .addFilter(loginAuthenticationFilter);

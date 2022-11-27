@@ -1,6 +1,6 @@
 # user-service
 
-### Connect to H2 database
+### 1. Connect to H2 database
 1. Add H2 dependency
 ```xml
 <dependency>
@@ -33,7 +33,7 @@ spring:
 ```
 Read more: https://stackoverflow.com/questions/63587966/spring-boot-h2-database-not-found-not-created-by-liquibase
 
-### Connect to MySQL database
+### 2. Connect to MySQL database
 1. Add dependency ``mysql-connector-java``
 ```xml
 <dependency>
@@ -54,7 +54,7 @@ spring:
       ddl-auto: update
 ```
 
-### A note on hibernate dialect
+### 3. A note on hibernate dialect
 I tested with H2, without the below properties, the H2 database still work well
 ```yaml
 spring:

@@ -13,7 +13,6 @@ eureka:
       defaultZone: http://localhost:8010/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.instance-id:${random.value}}
-    # Change default status page from /actuator/status to custom endpoint
     status-page-url-path: /users/status/check
     prefer-ip-address: true
 
