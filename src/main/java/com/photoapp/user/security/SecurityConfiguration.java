@@ -45,7 +45,7 @@ public class SecurityConfiguration {
             .and()
             .authorizeRequests()
                 // TODO should allow gateway call only
-                .antMatchers("/users/**").permitAll()
+                .antMatchers("/users/**", "/actuator/**").permitAll()
             .and()
             .addFilter(loginAuthenticationFilter);
 
