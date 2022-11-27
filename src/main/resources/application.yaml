@@ -31,5 +31,7 @@ feign:
     config:
       default:
         logger-level: FULL
+  circuitbreaker:
+    enabled: true
 
 

@@ -71,3 +71,15 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
 ```
 Read more: https://vladmihalcea.com/hibernate-dialect/
+
+### 4. Spring cloud starter netflix hystrix
+Netflix hystrix is in maintenance mode, not active anymore. We should use Resilience4j instead \
+If you want to use hystrix, add the hystrix dependency with explicit version because it's removed from spring cloud netflix
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+    <version>2.2.10.RELEASE</version>
+</dependency>
+```
+The ```@EnableCircuitBreaker``` is deprecated because it has only one implementation which is hystrix
