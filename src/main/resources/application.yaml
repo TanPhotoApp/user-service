@@ -16,6 +16,18 @@ eureka:
     status-page-url-path: /users/status/check
     prefer-ip-address: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+
 # load from config server
 token:
   # 1 day
@@ -31,7 +43,3 @@ feign:
     config:
       default:
         logger-level: FULL
-#  circuitbreaker:
-#    enabled: true
-
-
