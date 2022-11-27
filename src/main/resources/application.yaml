@@ -28,6 +28,21 @@ management:
     circuitbreakers:
       enabled: true
 
+resilience4j:
+  circuitbreaker:
+    configs:
+      album-service:
+        failure-rate-threshold: 50
+        slow-call-rate-threshold: 50
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 2
+        minimum-number-of-calls: 1
+        slow-call-duration-threshold: 200
+        wait-duration-in-open-state: 10000
+        event-consumer-buffer-size: 10
+        automatic-transition-from-open-to-half-open-enabled: true
+        register-health-indicator: true
+
 # load from config server
 token:
   # 1 day

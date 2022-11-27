@@ -16,7 +16,7 @@ public interface AlbumServiceClient {
     List<AlbumResponse> getAlbums(@PathVariable String id);
 
     default List<AlbumResponse> getAlbumsFallBack(String id, Throwable cause) {
-        System.err.printf("Get albums with id=%s got error: %s%n", id, cause.getMessage());
+        System.err.printf("Get albums with id=%s got error=%s, message: %s", id, cause.getClass().getSimpleName(), cause.getMessage());
 
         return List.of();
     }
