@@ -83,3 +83,13 @@ If you want to use hystrix, add the hystrix dependency with explicit version bec
 </dependency>
 ```
 The ```@EnableCircuitBreaker``` is deprecated because it has only one implementation which is hystrix
+
+### 5. Resilience4j problem
+When I follow the setup from Resilience4j [homepage](https://resilience4j.readme.io/docs/getting-started-3#setup), I got the same error with this [question](https://stackoverflow.com/questions/60587334/getting-compatible-version-issue-when-running-spring-boot-application-however-in) \
+I resolved it by using spring cloud starter version instead native resilience4j
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
+</dependency>
+```
