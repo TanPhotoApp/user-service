@@ -6,6 +6,7 @@ import com.photoapp.user.mapper.UserMapper;
 import com.photoapp.user.shared.AppUserDetails;
 import com.photoapp.user.shared.UserDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,12 +17,12 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserService implements UserDetailsService {
 
     private final UserMapper userMapper;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-//    private final RestTemplate restTemplate;
     private final AlbumServiceClient albumServiceClient;
 
     public UserDto createUser(UserDto userDto) {
@@ -54,11 +55,10 @@ public class UserService implements UserDetailsService {
 
         var userDto = userMapper.userEntityToUserDto(userEntity);
 
-        // call album-service by RestTemplate
-//        String url = "http://album-service/users/%s/albums".formatted(userId);
-//        var albums = List.of(restTemplate.getForObject(url, AlbumResponse[].class));
-
+        log.info("Before calling album service");
         var albums = albumServiceClient.getAlbums(userId);
+        log.info("After calling album service");
+
         userDto.setAlbums(albums);
 
         return userDto;
