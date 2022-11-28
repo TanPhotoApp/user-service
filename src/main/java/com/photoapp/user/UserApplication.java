@@ -9,9 +9,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
-// From Spring 2.2+ @ConfigurationProperties scanning Classes annotated with @ConfigurationProperties
-// can now be found via classpath scanning as an alternative to using @EnableConfigurationProperties or @Component.
-// Add @ConfigurationPropertiesScan to your application to enable scanning.
 @ConfigurationPropertiesScan
 public class UserApplication {
 

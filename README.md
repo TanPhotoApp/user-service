@@ -128,3 +128,37 @@ You can check out the [Zipkin homepage](https://zipkin.io/). I prefer using dock
 ```shell
 docker run -d -p 9411:9411 openzipkin/zipkin
 ```
+
+### 7. Bean validation
+Starting with Boot 2.3, we also need to explicitly add the ``spring-boot-starter-validation`` dependency to have bean validation ``@NotNull``, ``@NotBlank``, etc
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
+```
+
+### 8. Configuration properties
+From Spring 2.2+ ``@ConfigurationProperties`` scanning Classes annotated with ``@ConfigurationProperties`` can now be found via 
+classpath scanning as an alternative to using ``@EnableConfigurationProperties`` or ``@Component`` \
+Add ``@ConfigurationPropertiesScan`` to your application to enable scanning \
+```java
+// Old way
+@EnableConfigurationProperties // Add this annotation for every @ConfigurationProperties
+@ConfigurationProperties(prefix = "token")
+class TokenProperties {
+    //
+}
+
+// New way
+@SpringBootApplication
+@ConfigurationPropertiesScan // It will automatically scan all properties bean
+class Application {
+    //
+}
+
+@ConfigurationProperties(prefix = "token")
+class TokenProperties {
+    //
+}
+```
