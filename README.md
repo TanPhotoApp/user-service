@@ -93,3 +93,38 @@ I resolved it by using spring cloud starter version instead native resilience4j
     <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 </dependency>
 ```
+
+### 6. Sleuth & Zipkin
+#### 6.1. Adding sleuth & zipkin to your project
+Spring sleuth provides spring boot auto-configuration for distributed tracking. And Zipkin is
+a tool visualize the tracing \
+To use sleuth & zipkin in your project, you have to add these 2 dependencies
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-sleuth</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+</dependency>
+```
+
+And the following config
+```yaml
+spring:
+  zipkin:
+    base-url: http://localhost:9411 # default setting
+  sleuth:
+    sampler:
+      probability: 1
+```
+
+**Note:** In some code example, they use the dependency ``spring-cloud-starter-zipkin``, but this dependency is deprecated in
+later spring cloud bom. You should use the 2 above dependencies
+
+#### 6.1. Start Zipkin server
+You can check out the [Zipkin homepage](https://zipkin.io/). I prefer using docker
+```shell
+docker run -d -p 9411:9411 openzipkin/zipkin
+```
