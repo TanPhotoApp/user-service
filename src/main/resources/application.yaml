@@ -30,6 +30,7 @@ management:
 
 resilience4j:
   circuitbreaker:
+    circuit-breaker-aspect-order: 1
     instances:
       album-service:
         failure-rate-threshold: 50
@@ -37,11 +38,19 @@ resilience4j:
         sliding-window-type: COUNT_BASED
         sliding-window-size: 2
         minimum-number-of-calls: 1
-        slow-call-duration-threshold: 200
-        wait-duration-in-open-state: 10000
+        slow-call-duration-threshold: 1s
+        wait-duration-in-open-state: 10s
         event-consumer-buffer-size: 10
         automatic-transition-from-open-to-half-open-enabled: true
         register-health-indicator: true
+  retry:
+    retry-aspect-order: 2
+    instances:
+      album-service:
+        max-attempts: 3
+        wait-duration: 200ms
+        enable-exponential-backoff: true
+        exponential-backoff-multiplier: 2
 
 # load from config server
 token:
