@@ -10,9 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-/**
- * Since spring 2.7, the WebSecurityConfigurerAdapter is deprecated. We have to build Security configuration by ourselves
- */
 @EnableWebSecurity
 public class SecurityConfiguration {
 

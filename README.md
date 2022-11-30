@@ -162,3 +162,7 @@ class TokenProperties {
     //
 }
 ```
+
+### 9. Security configuration
+Since spring 2.7, the ``WebSecurityConfigurerAdapter`` is deprecated. We have to build Security configuration by ourselves \
+Check this post for more detail: https://www.baeldung.com/spring-deprecated-websecurityconfigureradapter
