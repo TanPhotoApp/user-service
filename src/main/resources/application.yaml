@@ -8,6 +8,13 @@ spring:
     import: optional:configserver:${SPRING_CLOUD_CONFIG_URI:http://localhost:8888}
 
 management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
   health:
     circuitbreakers:
       enabled: true
@@ -44,9 +51,3 @@ token:
 logging:
   level:
     com.photoapp.user.data.AlbumServiceClient: DEBUG
-
-feign:
-  client:
-    config:
-      default:
-        logger-level: FULL
