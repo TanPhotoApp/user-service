@@ -38,11 +38,15 @@ public class SecurityConfiguration {
         http
             .csrf().disable()
             .headers()
-                .frameOptions().disable() // To make h2-console work properly, because h2-console use frameOption
+                .frameOptions().disable()
             .and()
             .authorizeRequests()
-                // TODO should allow gateway call only
-                .antMatchers("/users/**", "/actuator/**").permitAll()
+                .antMatchers(
+                    "/users/**",
+                    "/actuator/**",
+                    "/h2-console"
+                ).permitAll()
+                .anyRequest().denyAll()
             .and()
             .addFilter(loginAuthenticationFilter);
 
