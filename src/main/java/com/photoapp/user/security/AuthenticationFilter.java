@@ -24,7 +24,7 @@ import java.util.List;
  * Don't define this filter as a Spring bean to avoid circular dependency injection. Because SecurityConfiguration
  * requires this bean, but this bean require AuthenticationManager which is defined in SecurityConfiguration
  */
-public class LoginAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private final TokenProperties tokenProperties;
 
@@ -32,7 +32,7 @@ public class LoginAuthenticationFilter extends UsernamePasswordAuthenticationFil
      * NOTE: require super.setAuthenticationManager to register a custom of UsernamePasswordAuthenticationFilter
      * Otherwise, throw error: authenticationManager must be specified
      */
-    public LoginAuthenticationFilter(AuthenticationManager authenticationManager, TokenProperties tokenProperties) {
+    public AuthenticationFilter(AuthenticationManager authenticationManager, TokenProperties tokenProperties) {
         super.setAuthenticationManager(authenticationManager);
         super.setFilterProcessesUrl("/users/login");
         this.tokenProperties = tokenProperties;
@@ -44,11 +44,7 @@ public class LoginAuthenticationFilter extends UsernamePasswordAuthenticationFil
         var credential = new ObjectMapper().readValue(request.getInputStream(), LoginRequest.class);
 
         return this.getAuthenticationManager().authenticate(
-            new UsernamePasswordAuthenticationToken(
-                credential.getEmail(),
-                credential.getPassword(),
-                List.of()
-            )
+            new UsernamePasswordAuthenticationToken(credential.getEmail(), credential.getPassword(), List.of())
         );
     }
 
