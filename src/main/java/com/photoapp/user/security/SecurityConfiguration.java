@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration {
 
     @Bean
@@ -51,7 +53,7 @@ public class SecurityConfiguration {
             .and()
             .authorizeRequests()
                 // Simulate allow create users from API gateway only. TODO use oauth2 later
-                .antMatchers(HttpMethod.POST, "/users").access("hasIpAddress(\"127.0.0.1\") or hasIpAddress(\"::1\")")
+                .antMatchers(HttpMethod.POST, "/users").permitAll()
                 .antMatchers("/actuator/**", "/h2-console").permitAll()
                 .anyRequest().authenticated()
             .and()
