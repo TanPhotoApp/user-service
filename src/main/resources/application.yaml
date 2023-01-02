@@ -6,6 +6,14 @@ spring:
     name: user-service
   config:
     import: optional:configserver:${SPRING_CLOUD_CONFIG_URI:http://localhost:8888}
+  datasource:
+    url: jdbc:mysql://localhost:3306/user-service
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: load-from-config-server
+    password: load-from-config-server
+  jpa:
+    hibernate:
+      ddl-auto: update
 
 management:
   endpoints:
@@ -43,10 +51,9 @@ resilience4j:
         enable-exponential-backoff: true
         exponential-backoff-multiplier: 2
 
-# load from config server
 token:
   expireTime: 8640000
-  signingKey: ahihi
+  signingKey: load-from-config-server
 
 logging:
   level:
